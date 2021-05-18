@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Button } from '../Button/Button'
+import { Button } from '../Button/Button';
 
 const Section = styled.section`
     width: 100%;
@@ -17,14 +17,14 @@ const Container = styled.div`
         grid-template-columns: 1fr;
     }
 `
-const ColumnLeft = styled.div`
+const ColumnRight = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
     line-height: 1.4;
     padding: 1rem 2rem;
-    order: ${({reverse}) => (reverse ? '2' : '1')}
+    order: ${({ reverse }) => (reverse ? '2' : '1')}
 
     h1{
         margin-bottom: 1rem;
@@ -35,15 +35,15 @@ const ColumnLeft = styled.div`
         margin-bottom: 2rem;
     }
 `
-const ColumnRight = styled.div`
+const ColumnLeft = styled.div`
     padding: 1rem 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    order: ${({reverse}) => (reverse ? '1' : '2')}
+    order: ${({ reverse }) => (reverse ? '2' : '1')}
 
     @media screen and (max-width: 768px){
-    order: ${({reverse}) => (reverse ? '2' : '1')}
+    order: ${({ reverse }) => (reverse ? '2' : '1')}
     }
 
     img{
@@ -58,22 +58,24 @@ const ColumnRight = styled.div`
     }
 `
 
-const InfoSection = ({heading,paragraphOne,paragraphTwo,image,buttonLabel,reverse,delay}) => {
+const InfoSection2 = ({heading,paragraphOne,paragraphTwo,image,buttonLabel,reverse,delay}) => {
     return (
+
         <Section>
             <Container>
                 <ColumnLeft>
-                <h1>{heading}</h1>
-                <p>{paragraphOne}</p>
-                <p>{paragraphTwo}</p>
-                <Button to="/homes" primary="true">{buttonLabel}</Button>
+                    <img src={image} alt="home" />
                 </ColumnLeft>
                 <ColumnRight>
-                    <img src={image} alt="home"/>
+                <h1>{heading}</h1>
+                    <p>{paragraphOne}</p>
+                    <p>{paragraphTwo}</p>
+                    <Button to="/homes" primary="true">{buttonLabel}</Button>
                 </ColumnRight>
             </Container>
         </Section>
+
     )
 }
 
-export default InfoSection
+export default InfoSection2
